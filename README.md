@@ -31,11 +31,13 @@ ALTER COLUMN Sale_time TIME(0);
 EXEC SP_RENAME 'Retail_Sales.quantiy' ,'quantity','column';
 
       -- How many records in my table
-SELECT count(*) total_data FROM Retail_Sales;
+SELECT count(*) total_data 
+FROM Retail_Sales;
 
      -- Data cleaning:
        --check and delete null values
-SELECT * FROM Retail_Sales
+SELECT * 
+FROM Retail_Sales
 WHERE transactions_id IS NULL 
       OR sale_date IS NULL OR sale_time IS NULL
       OR customer_id IS NULL OR gender IS NULL
@@ -51,22 +53,28 @@ WHERE transactions_id IS NULL
 
     -- Data Exploration:
        --Count total records
-SELECT count(*) AS Total_Sales FROM Retail_Sales;
+SELECT count(*) AS Total_Sales 
+FROM Retail_Sales;
 
       --Count unique customers
-SELECT COUNT(distinct(customer_id)) AS total_customers FROM Retail_Sales;
+SELECT COUNT(distinct(customer_id)) AS total_customers 
+FROM Retail_Sales;
 
       --Count distinct category
-SELECT DISTINCT(category) FROM Retail_Sales;
+SELECT DISTINCT(category) 
+FROM Retail_Sales;
 
       --Find total sales
-SELECT SUM(total_sale) AS Total_Sales FROM Retail_Sales;
+SELECT SUM(total_sale) AS Total_Sales 
+FROM Retail_Sales;
 
       --Find Category wise Sales
-SELECT category, SUM(total_sale) AS Total_Sales FROM Retail_Sales GROUP BY category;
+SELECT category, SUM(total_sale) AS Total_Sales 
+FROM Retail_Sales GROUP BY category;
 
       --Find Category wise total quantity Sales
-SELECT category, SUM(quantity) AS Total_Qty_Sale FROM Retail_Sales GROUP BY category;
+SELECT category, SUM(quantity) AS Total_Qty_Sale 
+FROM Retail_Sales GROUP BY category;
 
 
 
